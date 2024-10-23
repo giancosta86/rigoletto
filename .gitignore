@@ -1,0 +1,13 @@
+/coverage/
+
+/dist/
+
+/node_modules/
+
+/typedocs/
+
+/*-*.tgz
+
+/*.tsbuildinfo
+
+/website

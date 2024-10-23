@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+
+  "exclude": ["**/*.test.*", "**/*.spec.*", "tests/**/*", "jest-extended/**/*"],
+
+  "compilerOptions": {
+    "rootDir": "src",
+    "noEmit": false,
+    "outDir": "dist",
+    "preserveSymlinks": false
+  }
+}

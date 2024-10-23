@@ -1,0 +1,72 @@
+{
+  "name": "@giancosta86/rigoletto",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Elegant matchers for Vitest",
+  "keywords": [
+    "TypeScript",
+    "matchers",
+    "vitest",
+    "testing"
+  ],
+  "homepage": "https://github.com/giancosta86/rigoletto#readme",
+  "bugs": "https://github.com/giancosta86/rigoletto/issues",
+  "license": "MIT",
+  "author": {
+    "name": "Gianluca Costa",
+    "email": "gianluca@gianlucacosta.info",
+    "url": "https://gianlucacosta.info/"
+  },
+  "files": [
+    "./dist"
+  ],
+  "exports": {
+    "./jest-extended": {
+      "types": "./dist/jest-extended/index.d.ts",
+      "import": "./dist/jest-extended/index.js"
+    },
+    "./matchers/all": {
+      "types": "./dist/matchers/all.d.ts",
+      "import": "./dist/matchers/all.js"
+    },
+    "./matchers/nodejs": {
+      "types": "./dist/matchers/nodejs.d.ts",
+      "import": "./dist/matchers/nodejs.js"
+    },
+    "./matchers/vanilla": {
+      "types": "./dist/matchers/vanilla.d.ts",
+      "import": "./dist/matchers/vanilla.js"
+    },
+    "./testing": {
+      "types": "./dist/testing/index.d.ts",
+      "import": "./dist/testing/index.js"
+    }
+  },
+  "repository": "giancosta86/rigoletto",
+  "scripts": {
+    "clean": "rimraf tsconfig.build.tsbuildinfo dist coverage website *.tgz",
+    "clean:all": "pnpm clean && rimraf pnpm-lock.yaml node_modules",
+    "test": "vitest",
+    "build:typescript": "tsc -p tsconfig.build.json && resolve-tspaths -p tsconfig.build.json",
+    "build:typedoc": "typedoc --options typedoc.js --tsconfig tsconfig.build.json",
+    "copy-jest-extended": "cpx jest-extended/**/* dist/jest-extended",
+    "build": "pnpm build:typescript && pnpm build:typedoc && pnpm copy-jest-extended",
+    "verify": "pnpm test && pnpm build",
+    "prepack": "pnpm build"
+  },
+  "dependencies": {
+    "jest-extended": "^4.0.2",
+    "vitest": "^2.1.3"
+  },
+  "devDependencies": {
+    "@types/node": "22.9.0",
+    "@vitest/coverage-v8": "2.1.4",
+    "@vitest/expect": "2.1.4",
+    "cpx": "^1.5.0",
+    "resolve-tspaths": "^0.8.22",
+    "rimraf": "^6.0.1",
+    "typedoc": "0.26.11",
+    "typescript": "^5.6.3",
+    "vite-tsconfig-paths": "^5.1.0"
+  }
+}
