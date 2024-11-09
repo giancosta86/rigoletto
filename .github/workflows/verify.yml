@@ -1,4 +1,4 @@
-name: Verify source code
+name: Verify
 
 on:
   pull_request:
@@ -9,11 +9,9 @@ on:
 
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - uses: actions/checkout@v4
 
-      - uses: giancosta86/aurora-github/actions/inject-branch-version@v4
-
-      - uses: giancosta86/aurora-github/actions/verify-npm-package@v4
+      - uses: giancosta86/aurora-github/actions/verify-npm-package@v10

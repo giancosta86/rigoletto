@@ -1,25 +1,25 @@
-name: Publish npm package
+name: Publish
 
 on:
-  pull_request:
-    types: closed
-    branches: main
-
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
-  publish:
-    if: ${{ github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true) }}
-
-    runs-on: ubuntu-latest
-
+  publish-to-npm:
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-
-      - uses: giancosta86/aurora-github/actions/inject-branch-version@v4
-
-      - uses: giancosta86/aurora-github/actions/publish-npm-package@v4
+      - uses: giancosta86/aurora-github/actions/publish-npm-package@v10
         with:
           npm-token: ${{ secrets.NPM_TOKEN }}
 
-      - uses: giancosta86/aurora-github/actions/tag-and-release@v4
+  tag-and-release:
+    runs-on: ubuntu-24.04
+    needs: publish-to-npm
+    steps:
+      - uses: actions/checkout@v4
+      - uses: giancosta86/aurora-github/actions/tag-and-release@v10
