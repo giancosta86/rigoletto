@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.base.json",
+
+  "include": ["src/**/*", "tests/**/*", "static/**/*"],
+
+  "compilerOptions": {
+    "rootDir": ".",
+    "noEmit": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*/index.js"],
+      "~/*": ["src/*"],
+      "%/*": ["tests/*/index.js"]
+    }
+  }
+}

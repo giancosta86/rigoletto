@@ -1,0 +1,10 @@
+{
+  "extends": "../tsconfig.base.json",
+
+  "include": ["src/**/*", "globals.d.ts"],
+
+  "compilerOptions": {
+    "rootDir": ".",
+    "noEmit": true
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "tests",
+  "type": "module",
+  "private": "true",
+  "scripts": {
+    "clean:all": "rimraf pnpm-lock.yaml node_modules",
+    "test": "vitest",
+    "verify": "pnpm test"
+  },
+  "devDependencies": {
+    "@giancosta86/rigoletto": "link:..",
+    "@types/node": "22.13.5",
+    "rimraf": "^6.0.1",
+    "vitest": "3.0.7"
+  }
+}
