@@ -7,10 +7,6 @@ settings:
 importers:
 
   .:
-    optionalDependencies:
-      jest-extended:
-        specifier: ^4.0.0
-        version: 4.0.2
     devDependencies:
       '@giancosta86/typedoc-readonly':
         specifier: ^1.0.1
@@ -48,6 +44,10 @@ importers:
       vitest:
         specifier: ^3.0.8
         version: 3.0.8(@types/node@22.13.9)(yaml@2.7.0)
+    optionalDependencies:
+      jest-extended:
+        specifier: ^4.0.0
+        version: 4.0.2
 
 packages:
 
