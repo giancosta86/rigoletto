@@ -53,7 +53,7 @@
     "clean:all": "pnpm clean && rimraf pnpm-lock.yaml node_modules",
     "test": "vitest",
     "verify": "pnpm test",
-    "build:typescript": "tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json",
+    "build:typescript": "tsc -p tsconfig.build.json && tsc-alias -f -p tsconfig.build.json",
     "build:typedoc": "typedoc --options typedoc.js --tsconfig tsconfig.build.json",
     "copy-static": "cpx 'static/**/*' dist",
     "build": "pnpm build:typescript && pnpm build:typedoc && pnpm copy-static"
